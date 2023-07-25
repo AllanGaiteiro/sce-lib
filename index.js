@@ -1,6 +1,7 @@
 import { program } from "commander";
 import { RepositoryLib } from "./lib/repository/repository.lib.js";
 import { ServiceLib } from "./lib/service/service.lib.js";
+import { ControllerLib } from "./lib/controller/controller.lib.js";
 // Comandos da linha de comando
 program.version("1.0.0");
 
@@ -17,7 +18,14 @@ program
   .action((className) => {
     ServiceLib.createService(className);
   });
-  
+
+program
+  .command("create-controller <class-name>")
+  .description("Cria um controller para a classe especificada.")
+  .action((className) => {
+    ControllerLib.createController(className);
+  });
+
 program.parse(process.argv);
 
 if (!program.args.length) {
