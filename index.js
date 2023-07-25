@@ -1,17 +1,23 @@
-import { program } from 'commander';
-import { EntityCreator } from './lib/entity/entity-creator.js';
-import { RepositoryCreator } from './lib/repository/repository-creator.js';
+import { program } from "commander";
+import { RepositoryLib } from "./lib/repository/repository.lib.js";
+import { ServiceLib } from "./lib/service/service.lib.js";
 // Comandos da linha de comando
-program.version('1.0.0');
+program.version("1.0.0");
 
 program
-  .command('create-repository <class-name>')
-  .description('Cria um repositório para a classe especificada.')
+  .command("create-repository <class-name>")
+  .description("Cria um repositório para a classe especificada.")
   .action((className) => {
-    RepositoryCreator.createRepository(className);
-    EntityCreator.createEntity(className);
+    RepositoryLib.createRepository(className);
   });
 
+program
+  .command("create-service <class-name>")
+  .description("Cria um service para a classe especificada.")
+  .action((className) => {
+    ServiceLib.createService(className);
+  });
+  
 program.parse(process.argv);
 
 if (!program.args.length) {
