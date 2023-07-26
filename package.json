@@ -1,12 +1,18 @@
 {
+  "bin": {
+    "sua-lib": "cli.js"
+  },
   "name": "sce-lib",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "cli.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "createRepository": "node cli.js create-repository",
+    "createService": "node cli.js create-service",
+    "createController": "node cli.js create-controller",
+    "validateRepository": "node cli.js validate-repository"
   },
   "keywords": [],
   "author": "",
