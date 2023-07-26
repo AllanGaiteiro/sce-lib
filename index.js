@@ -29,13 +29,9 @@ program
   program
   .command('validate-repository <class-name>')
   .description('Valida o repositório e atualiza o serviço com os métodos encontrados.')
-  .action((className, repositoryPath) => {
+  .action((className) => {
     const methods = RepositoryLib.validateRepositoryAndGenerateMethods(className);
-    const serviceCode = ServiceLib.updateServiceWithRepositoryMethods(className, methods);
-
-    // Implemente a lógica para atualizar o arquivo do serviço com o código gerado.
-    // Por exemplo, você pode usar a biblioteca `fs` para escrever o novo código no arquivo.
-    console.log(serviceCode);
+    ServiceLib.updateServiceWithRepositoryMethods(className, methods);
   });
 
 program.parse(process.argv);
